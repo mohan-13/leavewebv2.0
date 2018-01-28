@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body style="color:green ;">
+<p style="font-size:20px">
+Welcome! New User.Please Fill your Details Here
+</p>
+<form  method="post"  >
+
+ 		{% csrf_token %}
+        {{ form.as_p}}
+
+ 		<input type="submit" name='create' value="SIGNUP" >
+    	</form>
+</body>
+</html>

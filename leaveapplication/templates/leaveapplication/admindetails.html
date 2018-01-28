@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applied Leaves</title>
+    <style>
+table, th,td {
+    border: 1px solid black;
+    color: green;
+    align-items: center;
+}
+</style>
+    </head>
+    <h2 align="center" style="border:2px solid #36ff19;color:rgb(255,46,228);">APPLIED LEAVES</h2>
+
+<body>
+
+<center>
+<table style="width: 100%">
+
+    <tr>
+        <th>S.No</th>
+        <th>Applied By</th>
+        <th>Leave Reason</th>
+        <th>From Date& Time</th>
+        <th>To Date</th>
+        <th>APPLIED ON</th>
+        <th>Status</th>
+    </tr>
+    {% for datum in data1 %}
+    <tr >
+            <td >{{ forloop.counter}}</td>
+            <td>{{ datum.apply_user.email}}</td>
+            <td >{{ datum.reason}}</td>
+            <td >{{ datum.from_date}}</td>
+            <td>{{ datum.to_date }}</td>
+            <td>{{ datum.applied_date }}</td>
+            <td>
+            <form method="POST" >{% csrf_token %}
+                        <select title="selcet_value" name="select_value" >
+                            <option value="0">Submitted</option>
+                            <option value="1">Approved</option>
+                            <option value="2">Denied</option>
+                                <input type="text" style="display: none" name='id'
+                                                               value="{{ datum.id }}"> <input type="submit" name='create'
+                                                                                             value="SUBMIT"> </form>
+                        </select>
+
+            </td>
+
+    {% endfor %}
+    </tr>
+</table>
+<p><a href="{% url "index" %}">BACK</a></p>
+</center>
+</body>
+</html>

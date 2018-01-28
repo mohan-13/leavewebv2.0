@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applied Leaves</title>
+    <style>
+table, th,td {
+    border: 1px solid black;
+    color: green;
+    align-items: center;
+}
+</style>
+    </head>
+    <h2 align="center" style="border:2px solid #36ff19;color:rgb(255,46,228);">APPLIED LEAVES</h2>
+
+<body>
+
+<center>
+<table style="width: 100%">
+
+    <tr>
+        <th>S.No</th>
+        <th>Leave Reason</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>APPLIED ON</th>
+        <th>APPROVED ON</th>
+        <th>Leave Status</th>
+
+    </tr>
+
+    {% for datum in data %}
+    <tr >
+            <td >{{ forloop.counter}}</td>
+            <td >{{ datum.reason}}</td>
+            <td >{{ datum.from_date}}</td>
+            <td>{{ datum.to_date }}</td>
+            <td>{{ datum.applied_date }}</td>
+            <td>{{ datum.approved_date }}</td>
+            <td>{{ datum.status}}</td>
+
+    {% endfor %}
+    </tr>
+</table>
+
+</center>
+<p><a href="{% url "index" %}">BACK</a></p>
+<a href="{% url 'logout' %}"> Click Here to logout></a>
+</body>
+</html>

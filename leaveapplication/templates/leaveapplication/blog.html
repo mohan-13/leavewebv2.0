@@ -1,0 +1,32 @@
+<html>
+	<head>
+	<title>LEAVE APPLICATION</title>
+	</head>
+
+<h2 align="center" style="border:2px solid #36ff19;color:rgb(255,46,228);">LEAVE APPLICATION FORM
+
+</h2>
+
+
+<body style=" color:#ff6f24">
+<center>
+	<form  method="post" >
+
+ 		{% csrf_token %}
+        {{ form1.as_p}}
+
+ 		<input type="submit" name='create' value="SUBMIT" >
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    	</form>
+
+</center>
+
+        </center>
+</body>
+</html>
